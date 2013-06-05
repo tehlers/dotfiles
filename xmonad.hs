@@ -30,13 +30,13 @@ myManageHook = composeAll . concat $
     , [ className   =? c --> doF (W.shift "VirtualBox") | c <- vboxApps]
     ]   
  where
-   myFloats      = ["MPlayer", "Gimp"]
-   myOtherFloats = ["alsamixer",".", "Firefox Preferences", "Selenium IDE","pinentry"]
-   browserApps   = ["firefox", "Iceweasel", "Google-chrome"]
+   myFloats      = ["MPlayer"]
+   myOtherFloats = ["alsamixer",".", "Firefox Preferences", "Selenium IDE", "pinentry"]
+   browserApps   = ["firefox", "Iceweasel", "Google-chrome", "Chromium-browser"]
    chatApps      = ["psi"]
    mailApps      = ["Kmail"]
-   editApps      = ["Eclipse"]
-   musicApps     = ["Amarok"]
+   editApps      = ["Eclipse","sublime_text"]
+   musicApps     = ["Amarok", "Rhythmbox", "Clementine"]
    zimApps       = ["Zim"]
    vboxApps      = ["VirtualBox"]
 
@@ -44,14 +44,18 @@ main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig
         { manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
-        , layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig
+        , workspaces = ["Shell","Browser","Edit","Zim","Mail","Chat","Tomcat","Music","VirtualBox"]
+        , layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig 
+--        http://haskell.org/haskellwiki/Xmonad/Config_archive/webframp%27s_xmonad.hs
+--        , layoutHook = avoidStruts $ smartBorders ( onWorkspace "Browser" Full ) $ layoutHook defaultConfig
+--        , layoutHook = Full $ onWorkspace "Browser" Full 
         , logHook = dynamicLogWithPP $ xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 50
                         }
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
-        , workspaces = ["Shell","Browser","Edit","Zim","Mail","Chat","Tomcat","Music","VirtualBox"]
-        , terminal = "urxvtc -tn rxvt"
+        -- , terminal = "urxvtc -tn rxvt"
+        , terminal = "urxvtc"
         , normalBorderColor = "#4f4e4c"
         , focusedBorderColor = "#ffffff"
         } `additionalKeys`
