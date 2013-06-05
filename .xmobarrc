@@ -4,7 +4,7 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
        , position = TopW L 90
        , lowerOnStart = True
        , commands = [ Run Weather "EDDH" ["-t","<tempC>°C","-L","64","-H","77","--normal","green","--high","red","--low","lightblue"] 36000
-                    , Run MultiCpu ["-t","Cpu: <total0> * <total1>","-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run MultiCpu ["-t","Cpu: <total0> * <total1> * <total2> * <total3> * <total4> * <total5> * <total6> * <total7>","-L","3","-H","50","--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <used>M (<usedratio>%)","-L","10","-H","90","--low","green","--normal","orange","--high","red"] 10
                     , Run Swap ["-L","10","-H","90","--low","green","--normal","orange","--high","red"] 10
                     , Run Battery ["-t","Batt: <leftbar> <left>","-H","90","-L","5","--high","green","--low","red","--normal","orange"] 10
