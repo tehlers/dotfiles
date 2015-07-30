@@ -153,6 +153,39 @@ bar {
 # Lock screen
 bindsym $mod+Shift+z exec "xscreensaver-command -lock"
 
+##
+# Assign clients to workspaces
+
+# 2 Browser
+assign [class="firefox"] 2 Browser
+assign [class="Iceweasel"] 2 Browser
+assign [class="Google-chrome"] 2 Browser
+assign [class="Chromium"] 2 Browser
+
+# 3 Edit
+assign [class="Eclipse"] 3 Edit
+assign [class="sublime_text"] 3 Edit
+assign [class="Gvim"] 3 Edit
+
+# 4 Zim
+assign [class="Zim"] 4 Zim
+
+# 5 Mail
+assign [class="Kmail"] 5 Mail
+
+# 6 Chat
+assign [class="psi"] 6 Chat
+assign [class="Jitsi"] 6 Chat
+assign [class="Pidgin"] 6 Chat
+
+# 8 Music
+assign [class="Amarok"] 8 Music
+assign [class="Rhythmbox"] 8 Music
+assign [class="Clementine"] 8 Music
+
+# 9 VirtualBox
+assign [class="VirtualBox"] 9 VirtualBox
+
 # Hide window title bar
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
