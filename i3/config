@@ -153,6 +153,9 @@ bar {
 # Lock screen
 bindsym $mod+Shift+z exec "xscreensaver-command -lock"
 
+# Take screenshot
+bindsym $mod+Print exec "sleep 0.2; scrot '%Y-%m-%d_%H-%M.png' -s -e 'mkdir -p /tmp/screenshots; mv $f /tmp/screenshots'"
+
 ##
 # Assign clients to workspaces
 
