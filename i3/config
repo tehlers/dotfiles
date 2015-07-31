@@ -24,7 +24,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec urxvtc
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -192,3 +192,6 @@ assign [class="VirtualBox"] VirtualBox
 # Hide window title bar
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
+
+# Start urxvt daemon
+exec --no-startup-id /usr/bin/urxvtd -q -f -o
