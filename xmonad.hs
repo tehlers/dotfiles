@@ -33,7 +33,7 @@ myManageHook = composeAll . concat $
    myFloats      = ["MPlayer"]
    myOtherFloats = ["alsamixer",".", "Firefox Preferences", "Selenium IDE", "pinentry"]
    browserApps   = ["firefox", "Iceweasel", "Google-chrome", "Chromium-browser"]
-   chatApps      = ["psi","Jitsi"]
+   chatApps      = ["psi","Jitsi","Pidgin"]
    mailApps      = ["Kmail"]
    editApps      = ["Eclipse","sublime_text"]
    musicApps     = ["Amarok", "Rhythmbox", "Clementine"]
@@ -60,7 +60,7 @@ main = do
         , focusedBorderColor = "#ffffff"
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
-        , ((mod4Mask .|. shiftMask, xK_m), spawn "disper --extend --direction=right")
+        , ((mod4Mask .|. shiftMask, xK_m), spawn "disper --extend --direction=right; xrandr --output DP-0 --primary; /home/thorsten/bin/restart_trayer.sh")
         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
         , ((mod4Mask, xK_Print), spawn "sleep 0.2; scrot '%Y-%m-%d_%H-%M.png' -s -e 'mkdir -p /tmp/screenshots; mv $f /tmp/screenshots'")
         ]
