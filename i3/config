@@ -211,3 +211,8 @@ exec --no-startup-id /usr/bin/urxvtd -q -f -o
 
 exec --no-startup-id xscreensaver -nosplash
 exec --no-startup-id feh --bg-center ~/.i3/background.png
+
+exec --no-startup-id /usr/lib/notify-osd/notify-osd
+exec --no-startup-id parcellite
+exec --no-startup-id /usr/bin/start-pulseaudio-x11
+exec --no-startup-id /usr/bin/blueman-applet
