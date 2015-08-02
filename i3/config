@@ -208,3 +208,6 @@ new_window 1pixel
 
 # Start urxvt daemon
 exec --no-startup-id /usr/bin/urxvtd -q -f -o
+
+exec --no-startup-id xscreensaver -nosplash
+exec --no-startup-id feh --bg-center ~/.i3/background.png
