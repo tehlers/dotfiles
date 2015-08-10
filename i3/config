@@ -217,6 +217,9 @@ assign [class="VirtualBox"] VirtualBox
 for_window [class="^.*"] border 1pixel
 new_window 1pixel
 
+# Force floating
+for_window [class="Pinentry" instance="pinentry"] floating enable
+
 # Start urxvt daemon
 exec --no-startup-id /usr/bin/urxvtd -q -f -o
 
