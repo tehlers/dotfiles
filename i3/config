@@ -168,6 +168,9 @@ bar {
         status_command ~/.i3/conky-i3bar
 }
 
+# Add monitor
+bindsym $mod+Shift+m exec "disper --extend --direction=right; xrandr --output DP-0 --primary"
+
 # Lock screen
 bindsym $mod+Shift+z exec "xscreensaver-command -lock"
 
