@@ -54,10 +54,10 @@ ${if_match "$gw_iface"=="(null)"}\
  Network Unavailable " , "color": "\#ff0000"\
 ${endif}\
 ${if_up wlan0}\
- wlan0 (${addr wlan0}) ↓${downspeed wlan0} ↑${upspeed wlan0} ", "color": "\#888888"\
+ wlan0 (${addr wlan0}) ↓${downspeed wlan0} ↑${upspeed wlan0} ${if_up tun0}(VPN)${endif}", "color": "\#888888"\
 ${endif}\
 ${if_up eth0}\
- eth0 (${addr eth0}) ↓${downspeed eth0} ↑${upspeed eth0} ", "color": "\#888888"\
+ eth0 (${addr eth0}) ↓${downspeed eth0} ↑${upspeed eth0} ${if_up tun0}(VPN)${endif}", "color": "\#888888"\
 ${endif}\
 },
 
