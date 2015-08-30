@@ -43,10 +43,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -178,10 +178,10 @@ bindsym $mod+Shift+z exec "xscreensaver-command -lock"
 bindsym $mod+Print exec "sleep 0.2; scrot '%Y-%m-%d_%H-%M.png' -s -e 'mkdir -p /tmp/screenshots; mv $f /tmp/screenshots'"
 
 # Move workspace to different monitor
-bindsym $mod+Left move workspace to output left
-bindsym $mod+Down move workspace to output down
-bindsym $mod+Up move workspace to output up
-bindsym $mod+Right move workspace to output right
+bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Down move workspace to output down
+bindsym $mod+Ctrl+Up move workspace to output up
+bindsym $mod+Ctrl+Right move workspace to output right
 
 ##
 # Assign clients to workspaces
