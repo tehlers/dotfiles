@@ -214,6 +214,7 @@ assign [class="Kmail"] Mail
 assign [class="psi"] Chat
 assign [class="Jitsi"] Chat
 assign [class="Pidgin"] Chat
+assign [title="Signal"] Chat
 
 # 8 Music
 assign [class="Amarok"] Music
@@ -234,7 +235,7 @@ for_window [class="Pinentry" instance="pinentry"] floating enable
 exec --no-startup-id /usr/bin/urxvtd -q -f -o
 
 exec --no-startup-id xscreensaver -nosplash
-exec --no-startup-id feh --bg-center ~/.i3/background.png
+exec --no-startup-id feh --bg-center ~/.i3/background.png ~/.i3/background-3440.png
 
 exec --no-startup-id /usr/lib/notify-osd/notify-osd
 exec --no-startup-id parcellite
