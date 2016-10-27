@@ -203,6 +203,7 @@ assign [class="Chromium"] Browser
 assign [class="Eclipse"] Edit
 assign [class="sublime_text"] Edit
 assign [class="Gvim"] Edit
+assign [class="jetbrains-idea-ce"] Edit
 
 # 4 Zim
 assign [class="Zim"] Zim
