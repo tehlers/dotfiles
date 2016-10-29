@@ -193,6 +193,7 @@ bindsym $mod+Return scratchpad show
 # Assign clients to workspaces
 
 # 2 Browser
+assign [title="Signal"] Chat # Chrome-App
 assign [class="firefox"] Browser
 assign [class="Iceweasel"] Browser
 assign [class="Google-chrome"] Browser
@@ -215,7 +216,7 @@ assign [class="Kmail"] Mail
 assign [class="psi"] Chat
 assign [class="Jitsi"] Chat
 assign [class="Pidgin"] Chat
-assign [title="Signal"] Chat
+assign [class="Slack"] Chat
 
 # 8 Music
 assign [class="Amarok"] Music
@@ -234,6 +235,8 @@ for_window [class="Pinentry" instance="pinentry"] floating enable
 
 # Start urxvt daemon
 exec --no-startup-id /usr/bin/urxvtd -q -f -o
+
+exec --no-startup-id xbindkeys
 
 exec --no-startup-id xscreensaver -nosplash
 exec --no-startup-id feh --bg-center ~/.i3/background.png ~/.i3/background-3440.png
