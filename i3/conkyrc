@@ -80,7 +80,7 @@ memory.color = "${if_match ${memperc} < 90 }" .. NORMAL .. "${else}" .. WARN .. 
 table.insert( text, memory )
 
 local battery = {}
-battery.full_text = "${if_existing /sys/class/power_supply/AC/online 1} " .. PLUG .. " ${else} " .. BATTERY_FULL .. " ${endif} ${battery_bar} (${battery_percent}%)"
+battery.full_text = "${if_existing /sys/class/power_supply/AC/online 1} " .. PLUG .. "${else} ${if_match ${battery_percent} > 90 }" .. BATTERY_FULL .. "${else}${if_match ${battery_percent} > 65 }" .. BATTERY_THREE_QUARTERS .. "${else}${if_match ${battery_percent} > 40 }" .. BATTERY_HALF .. "${else}${if_match ${battery_percent} > 15 }" .. BATTERY_QUARTER .. "${else}" .. BATTERY_EMPTY .. "${endif}${endif}${endif}${endif}${endif} ${battery_bar} (${battery_percent}%)"
 battery.short_text = "${if_existing /sys/class/power_supply/AC/online 1} " .. PLUG .. " ${else} " .. BATTERY_FULL .. " ${endif} ${battery_percent}%"
 battery.color = "${if_match ${battery_percent} > 10 }" .. NORMAL .. "${else}" .. WARN .. "${endif}"
 table.insert( text, battery )
@@ -91,7 +91,7 @@ no_network.color = WARN
 table.insert( text, no_network )
 
 local wlan = {}
-wlan.full_text = "${if_up " .. WLAN_DEVICE .. "} " .. WIFI .. " ${wireless_essid} " .. network_details( WLAN_DEVICE ) .. "${endif}" 
+wlan.full_text = "${if_existing /sys/class/rfkill/rfkill2/soft 0} " .. WIFI .. " ${if_up " .. WLAN_DEVICE .. "} ${wireless_essid} " .. network_details( WLAN_DEVICE ) .. "${endif}${endif}" 
 wlan.color = NORMAL
 table.insert( text, wlan )
 
