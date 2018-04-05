@@ -19,10 +19,14 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
+
 font pango:FontAwesome 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# Hide borders on workspaces with only one window visible
+hide_edge_borders smart
 
 # start a terminal
 bindsym $mod+Shift+Return exec urxvtc
@@ -167,17 +171,19 @@ bar {
         position top
         font pango:FontAwesome 10
 
+        tray_output primary
+
         status_command ~/.i3/conky-i3bar
 }
 
-# Add monitor
-bindsym $mod+Shift+m exec "disper --extend --direction=right; xrandr --output DP-0 --primary"
+# Change outout with autorandr
+bindsym $mod+m exec "autorandr --change"
 
 # Lock screen
 bindsym $mod+Shift+z exec "xscreensaver-command -lock"
 
 # Take screenshot
-bindsym $mod+Print exec "sleep 0.2; scrot '%Y-%m-%d_%H-%M.png' -s -e 'mkdir -p /tmp/screenshots; mv $f /tmp/screenshots'"
+bindsym $mod+Print exec "mkdir -p /tmp/screenshots; flameshot gui -p /tmp/screenshots"
 
 # Move workspace to different monitor
 bindsym $mod+Ctrl+Left move workspace to output left
@@ -196,7 +202,7 @@ bindsym $mod+Return scratchpad show
 
 # 2 Browser
 assign [title="Signal"] Chat
-assign [class="firefox"] Browser
+assign [class="Firefox"] Browser
 assign [class="Iceweasel"] Browser
 assign [class="Google-chrome"] Browser
 assign [class="google-chrome"] Browser
@@ -224,6 +230,7 @@ assign [class="Slack"] Chat
 assign [class="Amarok"] Music
 assign [class="Rhythmbox"] Music
 assign [class="Clementine"] Music
+assign [class="cantata"] Music
 
 # 9 VirtualBox
 assign [class="VirtualBox"] VirtualBox
@@ -241,9 +248,10 @@ exec --no-startup-id /usr/bin/urxvtd -q -f -o
 exec --no-startup-id xbindkeys
 
 exec --no-startup-id xscreensaver -nosplash
-exec --no-startup-id feh --bg-center ~/.i3/background-3440.png ~/.i3/background-1200.png ~/.i3/background.png
+exec --no-startup-id feh --bg-fill ~/.i3/background.png
 
-exec --no-startup-id /usr/lib/notify-osd/notify-osd
+exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id parcellite
 exec --no-startup-id /usr/bin/start-pulseaudio-x11
 exec --no-startup-id /usr/bin/blueman-applet
+exec --no-startup-id /bin/flameshot
