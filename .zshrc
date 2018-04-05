@@ -72,3 +72,8 @@ bindkey -v
 
 # Host-specific configuration
 source $HOME/.zshrc.local 
+
+# Kubectl completion
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
