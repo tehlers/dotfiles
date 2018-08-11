@@ -1,0 +1,17 @@
+#! /bin/sh
+
+# Terminate already running bar instances
+killall -q polybar
+
+# Wait until the processes have been shut down
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
+# Start polybar for each monitor
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+    if xrandr | grep primary | grep -q "$m"; then
+        tray_position=right
+    else
+        tray_position=none
+    fi
+    MONITOR=$m TRAY_POSITION=$tray_position polybar --reload top &
+done

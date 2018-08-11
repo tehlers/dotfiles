@@ -98,7 +98,7 @@ bindsym $mod+3 workspace Edit
 bindsym $mod+4 workspace Zim
 bindsym $mod+5 workspace Mail
 bindsym $mod+6 workspace Chat
-bindsym $mod+7 workspace Tomcat
+bindsym $mod+7 workspace Logs
 bindsym $mod+8 workspace Music
 bindsym $mod+9 workspace VirtualBox
 bindsym $mod+0 workspace Misc
@@ -110,7 +110,7 @@ bindsym $mod+Shift+3 move container to workspace Edit
 bindsym $mod+Shift+4 move container to workspace Zim
 bindsym $mod+Shift+5 move container to workspace Mail
 bindsym $mod+Shift+6 move container to workspace Chat
-bindsym $mod+Shift+7 move container to workspace Tomcat
+bindsym $mod+Shift+7 move container to workspace Logs
 bindsym $mod+Shift+8 move container to workspace Music
 bindsym $mod+Shift+9 move container to workspace VirtualBox
 bindsym $mod+Shift+0 move container to workspace Misc
@@ -156,24 +156,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        colors {
-            # Whole color settings
-            background #000000
-            statusline #ffffff
-            # separator  #666666
-
-            # Type             border  background font
-            focused_workspace  #008fff #007fff #ffffff
-            active_workspace   #333333 #5f676a #ffffff
-            inactive_workspace #333333 #222222 #888888
-            urgent_workspace   #aa0000 #990000 #ffffff
-        }
-        position top
-        font pango:FontAwesome 10
-
-        tray_output primary
-
-        status_command ~/.i3/conky-i3bar
+    i3bar_command $HOME/.i3/scripts/launch-polybar.sh
 }
 
 # Change outout with autorandr
@@ -231,6 +214,7 @@ assign [class="Amarok"] Music
 assign [class="Rhythmbox"] Music
 assign [class="Clementine"] Music
 assign [class="cantata"] Music
+assign [class="Spotify"] Music
 
 # 9 VirtualBox
 assign [class="VirtualBox"] VirtualBox
@@ -241,6 +225,8 @@ new_window 1pixel
 
 # Force floating
 for_window [class="Pinentry" instance="pinentry"] floating enable
+
+exec_always --no-startup-id $HOME/.i3/scripts/launch-polybar
 
 # Start urxvt daemon
 exec --no-startup-id /usr/bin/urxvtd -q -f -o

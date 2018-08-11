@@ -1,0 +1,150 @@
+[colors]
+background = #000
+foreground = #888888
+foreground-highlight = #fff
+
+[bar/top]
+monitor = ${env:MONITOR:DP-4}
+width = 100%
+height = 20
+radius = 6.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 4
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2 
+
+module-margin-left = 1
+module-margin-right = 2 
+
+separator = |
+
+font-0 = Bitstream Vera Sans:style=Roman:size=10
+font-1 = FontAwesome:style=Regular:size=10
+font-2 = Font Awesome 5 Brands:style=Regular:size=10
+font-3 = Font Awesome 5 Free:style=Solid:size=10
+
+modules-left = i3
+modules-right = cpu memory battery wireless-network network vpn temperature date
+
+tray-position = ${env:TRAY_POSITION}
+tray-padding = 2
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+index-sort = true
+
+label-separator = |
+label-separator-padding = 2
+
+label-focused-underline = #007fff
+label-visible-underline = #555555
+
+ws-icon-0 = Shell;
+ws-icon-1 = Browser;
+ws-icon-2 = Edit;
+ws-icon-3 = Zim;
+ws-icon-4 = Mail;
+ws-icon-5 = Chat;
+ws-icon-6 = Logs;
+ws-icon-7 = Music;
+ws-icon-8 = VirtualBox;
+ws-icon-9 = Misc;
+ws-icon-default = ♟
+
+[module/cpu]
+type = internal/cpu
+
+label =  %percentage-cores%
+
+[module/memory]
+type = internal/memory
+
+label =  %gb_used%/%gb_free%
+
+[module/battery]
+type = internal/battery
+
+battery = BAT0
+adapter = AC
+
+format-charging = <ramp-capacity> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+label-charging = (%percentage%%) 
+label-discharging = (%percentage%%)
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+[module/wireless-network]
+type = internal/network
+interface = wlp4s0
+interval = 0.5
+ping-interval = 10
+
+format-connected = <label-connected>
+label-connected =  %essid% (%local_ip%)  %downspeed%  %upspeed%
+label-disconnected = 
+label-disconnected-foreground = #66
+
+[module/network]
+type = internal/network
+interface = enp0s31f6
+interval = 0.5
+ping-interval = 10
+
+format-connected = <label-connected>
+label-connected =  (%local_ip%)  %downspeed%  %upspeed%
+label-disconnected = 
+label-disconnected-foreground = #66
+
+[module/vpn]
+type = custom/script
+
+exec = echo "VPN"
+exec-if = ip link | grep tun
+interval = 2 
+
+[module/temperature]
+type = custom/script
+
+exec = curl --silent http://tgftp.nws.noaa.gov/data/observations/metar/decoded/EDDH.TXT | grep Temperature | sed "s/.*(\([0-9]*\) C)/\1/g"
+label =  %output%°C
+interval = 600
+
+[module/date]
+type = internal/date
+interval = 1 
+
+date = " %R"
+date-alt = " %d. %B %Y %R (KW%V)"
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-highlight}
+format-foreground = ${colors.foreground-highlight}
+
+label = %date%
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
