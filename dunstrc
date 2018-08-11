@@ -146,7 +146,9 @@
     icon_position = right 
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/oxygen/base/16x16/status:/usr/share/icons/oxygen/base/16x16/devices:/home/thorsten/.icons
+
+    max_icon_size = 64
 
 [frame]
     width = 3
