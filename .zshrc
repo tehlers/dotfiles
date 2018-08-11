@@ -22,8 +22,8 @@ RPROMPT="%(1v.%F{green}%1v%f.)"
 
 # History
 HISTFILE=~/.zsh_history
-SAVEHIST=10000
-HISTSIZE=12000
+SAVEHIST=100000
+HISTSIZE=120000
 
 # Menu completion
 zmodload -i zsh/complist
