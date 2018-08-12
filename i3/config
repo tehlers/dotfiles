@@ -214,7 +214,8 @@ assign [class="Amarok"] 8:Music
 assign [class="Rhythmbox"] 8:Music
 assign [class="Clementine"] 8:Music
 assign [class="cantata"] 8:Music
-assign [class="Spotify"] 8:Music
+# Spotify sets the hints after it has been assigned to a workspace
+for_window [class="Spotify"] move to workspace 8:Music
 
 # 9 VirtualBox
 assign [class="VirtualBox"] 9:VirtualBox
