@@ -45,6 +45,7 @@ cursor-scroll = ns-resize
 [module/i3]
 type = internal/i3
 pin-workspaces = true
+strip-wsnumbers = true
 index-sort = true
 
 label-separator = |
@@ -53,16 +54,16 @@ label-separator-padding = 2
 label-focused-underline = #007fff
 label-visible-underline = #555555
 
-ws-icon-0 = Shell;
-ws-icon-1 = Browser;
-ws-icon-2 = Edit;
-ws-icon-3 = Zim;
-ws-icon-4 = Mail;
-ws-icon-5 = Chat;
-ws-icon-6 = Logs;
-ws-icon-7 = Music;
-ws-icon-8 = VirtualBox;
-ws-icon-9 = Misc;
+ws-icon-0 = 1:Shell;
+ws-icon-1 = 2:Browser;
+ws-icon-2 = 3:Edit;
+ws-icon-3 = 4:Zim;
+ws-icon-4 = 5:Mail;
+ws-icon-5 = 6:Chat;
+ws-icon-6 = 7:Logs;
+ws-icon-7 = 8:Music;
+ws-icon-8 = 9:VirtualBox;
+ws-icon-9 = 10:Misc;
 ws-icon-default = ♟
 
 [module/cpu]

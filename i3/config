@@ -92,28 +92,28 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace Shell
-bindsym $mod+2 workspace Browser
-bindsym $mod+3 workspace Edit
-bindsym $mod+4 workspace Zim
-bindsym $mod+5 workspace Mail
-bindsym $mod+6 workspace Chat
-bindsym $mod+7 workspace Logs
-bindsym $mod+8 workspace Music
-bindsym $mod+9 workspace VirtualBox
-bindsym $mod+0 workspace Misc
+bindsym $mod+1 workspace 1:Shell
+bindsym $mod+2 workspace 2:Browser
+bindsym $mod+3 workspace 3:Edit
+bindsym $mod+4 workspace 4:Zim
+bindsym $mod+5 workspace 5:Mail
+bindsym $mod+6 workspace 6:Chat
+bindsym $mod+7 workspace 7:Logs
+bindsym $mod+8 workspace 8:Music
+bindsym $mod+9 workspace 9:VirtualBox
+bindsym $mod+0 workspace 10:Misc
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace Shell
-bindsym $mod+Shift+2 move container to workspace Browser
-bindsym $mod+Shift+3 move container to workspace Edit
-bindsym $mod+Shift+4 move container to workspace Zim
-bindsym $mod+Shift+5 move container to workspace Mail
-bindsym $mod+Shift+6 move container to workspace Chat
-bindsym $mod+Shift+7 move container to workspace Logs
-bindsym $mod+Shift+8 move container to workspace Music
-bindsym $mod+Shift+9 move container to workspace VirtualBox
-bindsym $mod+Shift+0 move container to workspace Misc
+bindsym $mod+Shift+1 move container to workspace 1:Shell
+bindsym $mod+Shift+2 move container to workspace 2:Browser
+bindsym $mod+Shift+3 move container to workspace 3:Edit
+bindsym $mod+Shift+4 move container to workspace 4:Zim
+bindsym $mod+Shift+5 move container to workspace 5:Mail
+bindsym $mod+Shift+6 move container to workspace 6:Chat
+bindsym $mod+Shift+7 move container to workspace 7:Logs
+bindsym $mod+Shift+8 move container to workspace 8:Music
+bindsym $mod+Shift+9 move container to workspace 9:VirtualBox
+bindsym $mod+Shift+0 move container to workspace 10:Misc
 
 # reload the configuration file
 # bindsym $mod+Shift+c reload
@@ -184,40 +184,40 @@ bindsym $mod+Return scratchpad show
 # Assign clients to workspaces
 
 # 2 Browser
-assign [title="Signal"] Chat
-assign [class="Firefox"] Browser
-assign [class="Iceweasel"] Browser
-assign [class="Google-chrome"] Browser
-assign [class="google-chrome"] Browser
-assign [class="Chromium"] Browser
+assign [class="Firefox"] 2:Browser
+assign [class="Iceweasel"] 2:Browser
+assign [class="Google-chrome"] 2:Browser
+assign [class="google-chrome"] 2:Browser
+assign [class="Chromium"] 2:Browser
 
 # 3 Edit
-assign [class="Eclipse"] Edit
-assign [class="sublime_text"] Edit
-assign [class="Gvim"] Edit
-assign [class="jetbrains-idea-ce"] Edit
+assign [class="Eclipse"] 3:Edit
+assign [class="sublime_text"] 3:Edit
+assign [class="Gvim"] 3:Edit
+assign [class="jetbrains-idea-ce"] 3:Edit
 
 # 4 Zim
-assign [class="Zim"] Zim
+assign [class="Zim"] 4:Zim
 
 # 5 Mail
-assign [class="Kmail"] Mail
+assign [class="Kmail"] 5:Mail
 
 # 6 Chat
-assign [class="psi"] Chat
-assign [class="Jitsi"] Chat
-assign [class="Pidgin"] Chat
-assign [class="Slack"] Chat
+assign [class="psi"] 6:Chat
+assign [class="Jitsi"] 6:Chat
+assign [class="Pidgin"] 6:Chat
+assign [class="Slack"] 6:Chat
+assign [title="Signal"] 6:Chat
 
 # 8 Music
-assign [class="Amarok"] Music
-assign [class="Rhythmbox"] Music
-assign [class="Clementine"] Music
-assign [class="cantata"] Music
-assign [class="Spotify"] Music
+assign [class="Amarok"] 8:Music
+assign [class="Rhythmbox"] 8:Music
+assign [class="Clementine"] 8:Music
+assign [class="cantata"] 8:Music
+assign [class="Spotify"] 8:Music
 
 # 9 VirtualBox
-assign [class="VirtualBox"] VirtualBox
+assign [class="VirtualBox"] 9:VirtualBox
 
 # Hide window title bar
 for_window [class="^.*"] border 1pixel
