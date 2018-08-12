@@ -53,6 +53,7 @@ label-separator-padding = 2
 
 label-focused-underline = #007fff
 label-visible-underline = #555555
+label-urgent-underline = #990000
 
 ws-icon-0 = 1:Shell;
 ws-icon-1 = 2:Browser;
