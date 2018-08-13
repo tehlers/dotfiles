@@ -242,3 +242,5 @@ exec --no-startup-id parcellite
 exec --no-startup-id /usr/bin/start-pulseaudio-x11
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /bin/flameshot
+
+exec --no-startup-id "autorandr --change"

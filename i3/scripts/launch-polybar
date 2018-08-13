@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/env bash
 
 # Terminate already running bar instances
 killall -q polybar
@@ -9,9 +9,9 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Start polybar for each monitor
 for m in $(polybar --list-monitors | cut -d":" -f1); do
     if xrandr | grep primary | grep -q "$m"; then
-        tray_position=right
+        type=full
     else
-        tray_position=none
+        type=simple
     fi
-    MONITOR=$m TRAY_POSITION=$tray_position polybar --reload top &
+    MONITOR=$m polybar --reload $type &
 done
