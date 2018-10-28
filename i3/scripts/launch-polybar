@@ -7,10 +7,17 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Start polybar for each monitor
-for m in $(polybar --list-monitors | cut -d":" -f1); do
-    if xrandr | grep primary | grep -q "$m"; then
+MONITORS=$(polybar --list-monitors | cut -d":" -f1)
+
+for m in $MONITORS; do
+    if [ "$(echo "$MONITORS" | wc -l)" = 1 ]; then
+        # show full polybar if there is only one monitor (this also handles mirrored monitors)
+        type=full
+    elif xrandr | grep primary | grep -q "$m"; then
+        # show full polybar on primary monitor
         type=full
     else
+        # show simple polybar on all additional monitors
         type=simple
     fi
     MONITOR=$m polybar --reload $type &
