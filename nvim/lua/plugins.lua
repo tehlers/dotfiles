@@ -39,4 +39,7 @@ return require('packer').startup(function()
 
   -- apply .editorconfig
   use 'gpanders/editorconfig.nvim'
+
+  -- nvim-dap
+  use 'mfussenegger/nvim-dap'
 end)
