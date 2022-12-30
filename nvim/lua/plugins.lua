@@ -42,4 +42,17 @@ return require('packer').startup(function()
 
   -- nvim-dap
   use 'mfussenegger/nvim-dap'
+
+  -- nvim-neotest
+  use {
+      'nvim-neotest/neotest',
+      requires = {
+          'nvim-lua/plenary.nvim',
+          'nvim-treesitter/nvim-treesitter',
+          'antoinemadec/FixCursorHold.nvim',
+          'sidlatau/neotest-dart',
+          'nvim-neotest/neotest-go',
+          'rouge8/neotest-rust'
+      }
+  }
 end)

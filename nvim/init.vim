@@ -13,6 +13,15 @@ require('lualine').setup {
     }
 }
 EOF
+lua << EOF
+require('neotest').setup{
+  adapters = {
+    require('neotest-dart'),
+    require('neotest-go'),
+    require('neotest-rust'),
+  },
+}
+EOF
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
