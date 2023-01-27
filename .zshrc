@@ -77,3 +77,11 @@ source $HOME/.zshrc.local
 if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
 fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/mcli mc
+
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
