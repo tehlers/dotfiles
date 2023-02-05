@@ -55,4 +55,10 @@ return require('packer').startup(function()
           'rouge8/neotest-rust'
       }
   }
+
+  -- firenvim
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end 
+  }
 end)

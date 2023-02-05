@@ -44,3 +44,6 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " If a <Esc> is needed in the terminal, <Ctrl>+<v> <Esc> can be used.
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
+
+au BufEnter github.com_*.txt set filetype=markdown
+au BufEnter revolution.dev_*.txt set filetype=markdown
