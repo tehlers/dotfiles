@@ -9,7 +9,7 @@ lua require('treesitter')
 lua << EOF
 require('lualine').setup {
     sections = {
-        lualine_c = {'filename', 'lsp_progress'}
+        lualine_c = {{'filename', path=1}, 'lsp_progress'}
     }
 }
 EOF
