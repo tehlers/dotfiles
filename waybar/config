@@ -81,12 +81,15 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " {essid} ({signalStrength}%)",
-        "format-ethernet": " {ipaddr}/{cidr}",
-        "tooltip-format": " {ifname} via {gwaddr}",
+        "interval": 1,
+        "format-wifi": "{icon} {essid} ({signalStrength}%)",
+        "format-ethernet": " {ipaddr}",
+        "tooltip-format": " ({ifname}): {ipaddr}\n {bandwidthDownBytes}  {bandwidthUpBytes}",
+        "tooltip-format-wifi": " ({ifname}): {ipaddr}\n {bandwidthDownBytes}  {bandwidthUpBytes}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"]
     },
     "custom/weather": {
         "exec": "$HOME/.config/waybar/weather.py",
