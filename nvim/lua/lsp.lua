@@ -65,6 +65,12 @@ require'lspconfig'.dartls.setup{
     capabilities = nvim_cmp_capabilities,
 }
 
+-- Python
+require'lspconfig'.pylsp.setup{
+    on_attach = on_attach,
+    capabilities = nvim_cmp_capabilities,
+}
+
 -- Terraform
 require'lspconfig'.terraformls.setup{
     on_attach = on_attach,
