@@ -33,12 +33,23 @@ set number relativenumber
 set cursorline
 set cursorlineopt=line
 
+set title
+
+lua << EOF
+require('nightfox').setup({
+  options = {
+    transparent = true,
+  }
+})
+EOF
+
 colorscheme nightfox
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fr <cmd>Telescope lsp_references<cr>
 
 " Use <Esc> to switch to normal mode from terminal mode.
 " If a <Esc> is needed in the terminal, <Ctrl>+<v> <Esc> can be used.
