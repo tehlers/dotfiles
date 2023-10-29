@@ -51,7 +51,6 @@
     # Ignore newlines '\n' in notifications.
     ignore_newline = no
     
-    
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
     # The geometry of the message window.
@@ -67,8 +66,9 @@
     # geometry = "300x5-30+20"
     # geometry = "0x5-0+28"
     
-    # geometry = "0x5-0+0"
-    offset=0x28
+    #geometry = "0x5-0+0"
+    #offset=0x28
+    offset=0x0
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
