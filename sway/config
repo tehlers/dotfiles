@@ -1,0 +1,227 @@
+set $mod Mod4
+
+input * xkb_layout "de"
+
+font pango:FontAwesome 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Hide borders on workspaces with only one window visible
+hide_edge_borders smart
+
+# start a terminal
+bindsym $mod+Shift+Return exec alacritty msg create-window || alacritty
+
+# kill focused window
+bindsym $mod+Shift+c kill
+
+# start bemenu (a program launcher)
+bindsym $mod+p exec bemenu-run --line-height 30 --hp 10 --hf '#ffffff' --nf '#888888' --af '#888888' --tf '#ffffff'
+
+# start passmenu
+bindsym $mod+o exec passmenu
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+w split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1:Shell
+bindsym $mod+2 workspace 2:Browser
+bindsym $mod+3 workspace 3:Edit
+bindsym $mod+4 workspace 4:Zim
+bindsym $mod+5 workspace 5:Mail
+bindsym $mod+6 workspace 6:Chat
+bindsym $mod+7 workspace 7:Logs
+bindsym $mod+8 workspace 8:Music
+bindsym $mod+9 workspace 9:Conference
+bindsym $mod+0 workspace 10:Misc
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1:Shell
+bindsym $mod+Shift+2 move container to workspace 2:Browser
+bindsym $mod+Shift+3 move container to workspace 3:Edit
+bindsym $mod+Shift+4 move container to workspace 4:Zim
+bindsym $mod+Shift+5 move container to workspace 5:Mail
+bindsym $mod+Shift+6 move container to workspace 6:Chat
+bindsym $mod+Shift+7 move container to workspace 7:Logs
+bindsym $mod+Shift+8 move container to workspace 8:Music
+bindsym $mod+Shift+9 move container to workspace 9:Conference
+bindsym $mod+Shift+0 move container to workspace 10:Misc
+
+# reload the configuration file
+bindsym $mod+q reload
+
+# exit sway (logs you out of your X session)
+bindsym $mod+Shift+q exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Shift+h resize shrink width 1 px or 1 ppt
+        bindsym Shift+j resize grow height 1 px or 1 ppt
+        bindsym Shift+k resize shrink height 1 px or 1 ppt
+        bindsym Shift+l resize grow width 1 px or 1 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+bar {
+    swaybar_command waybar
+}
+
+# Move workspace to different monitor
+bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Down move workspace to output down
+bindsym $mod+Ctrl+Up move workspace to output up
+bindsym $mod+Ctrl+Right move workspace to output right
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Ctrl+Return move scratchpad
+
+# Toggle the first scratchpad window
+bindsym $mod+Return scratchpad show
+
+# Special keys
+bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl --device tpacpi::kbd_backlight s 1-
+bindsym XF86MonBrightnessUp exec brightnessctl --device tpacpi::kbd_backlight s 1+
+# Initial value was 6310 (33%)
+bindsym Shift+XF86MonBrightnessDown exec brightnessctl --device intel_backlight s 10%-
+bindsym Shift+XF86MonBrightnessUp exec brightnessctl --device intel_backlight s 10%+
+
+##
+# Assign clients to workspaces
+
+# 2 Browser
+assign [class="firefox"] 2:Browser
+assign [app_id="firefox"] 2:Browser
+assign [class="Google-chrome"] 2:Browser
+assign [app_id="google-chrome"] 2:Browser
+assign [class="Chromium"] 2:Browser
+
+# 3 Edit
+
+# 4 Zim
+assign [class="Zim"] 4:Zim
+
+# 5 Mail
+assign [class="Kmail"] 5:Mail
+
+# 6 Chat
+assign [class="psi"] 6:Chat
+assign [class="Jitsi"] 6:Chat
+assign [class="Pidgin"] 6:Chat
+assign [class="Slack"] 6:Chat
+assign [class="discord"] 6:Chat
+assign [class="TeamSpeak 3"] 6:Chat
+assign [title="Signal"] 6:Chat
+
+# 8 Music
+assign [class="Amarok"] 8:Music
+assign [class="Rhythmbox"] 8:Music
+assign [class="Clementine"] 8:Music
+assign [class="cantata"] 8:Music
+# Spotify sets the hints after it has been assigned to a workspace
+for_window [class="Spotify"] move to workspace 8:Music
+
+# Hide window title bar
+for_window [class="^.*"] border 1pixel
+default_border pixel 1px
+
+# Force floating
+for_window [class="Pinentry" instance="pinentry"] floating enable
+
+# Disable lock screen when in fullscreen mode
+for_window [app_id="firefox"] inhibit_idle fullscreen
+
+set $lock_screen "swaylock -f --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color 888888 --key-hl-color ffffffff --line-color 00000000 --inside-color 00000088 --separator-color 00000000 --text-color ffffffff --grace 2 --fade-in 0.2"
+
+exec swayidle -w \
+    timeout 120 $lock_screen \
+    timeout 300 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"'
+
+bindsym $mod+Shift+z exec $lock_screen
+
+# Take screenshot
+bindsym $mod+Print exec "mkdir -p /tmp/screenshots; flameshot gui -p /tmp/screenshots"
+
+exec --no-startup-id /usr/bin/dunst
+exec --no-startup-id /bin/flameshot
+
+# Set background image
+exec --no-startup-id swaybg --image ~/.config/sway/slate.jpg
+
+exec_always systemctl --user start sway-session.target
+
+include /etc/sway/config.d/*
