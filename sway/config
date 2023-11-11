@@ -216,11 +216,11 @@ bindsym $mod+Shift+z exec $lock_screen
 # Take screenshot
 bindsym $mod+Print exec "mkdir -p /tmp/screenshots; flameshot gui -p /tmp/screenshots"
 
-exec --no-startup-id /usr/bin/dunst
-exec --no-startup-id /bin/flameshot
+exec /usr/bin/dunst
+exec /bin/flameshot
 
 # Set background image
-exec --no-startup-id swaybg --image ~/.config/sway/slate.jpg
+exec swaybg --image ~/.config/sway/slate.jpg
 
 exec_always systemctl --user start sway-session.target
 
