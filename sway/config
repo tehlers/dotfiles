@@ -16,8 +16,8 @@ bindsym $mod+Shift+Return exec alacritty msg create-window || alacritty
 # kill focused window
 bindsym $mod+Shift+c kill
 
-# start bemenu (a program launcher)
-bindsym $mod+p exec bemenu-run --line-height 30 --hp 10 --hf '#ffffff' --nf '#888888' --af '#888888' --tf '#ffffff'
+# start yofi (a program launcher)
+bindsym $mod+p exec yofi
 
 # start passmenu
 bindsym $mod+o exec passmenu
