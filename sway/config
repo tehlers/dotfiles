@@ -19,8 +19,8 @@ bindsym $mod+Shift+c kill
 # start yofi (a program launcher)
 bindsym $mod+p exec yofi
 
-# start passmenu
-bindsym $mod+o exec passmenu
+# start pass with yofi as selector
+bindsym $mod+o exec ~/.config/sway/passmenu-yofi
 
 # change focus
 bindsym $mod+h focus left
