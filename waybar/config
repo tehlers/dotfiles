@@ -54,8 +54,9 @@
         "spacing": 10
     },
     "clock": {
+        "interval": 1,
         "format": "{:%R}",
-        "format-alt": "{:%d. %B %Y %R (KW%V)}",
+        "format-alt": "{:%d. %B %Y %R:%S (KW%V)}",
     },
     "cpu": {
         "format": " {usage}%",
