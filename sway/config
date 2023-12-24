@@ -214,10 +214,9 @@ exec swayidle -w \
 bindsym $mod+Shift+z exec $lock_screen
 
 # Take screenshot
-bindsym $mod+Print exec "mkdir -p /tmp/screenshots; flameshot gui -p /tmp/screenshots"
+bindsym $mod+Print exec "mkdir -p /tmp/screenshots; watershot directory /tmp/screenshots"
 
 exec /usr/bin/dunst
-exec /bin/flameshot
 
 # Set background image
 exec swaybg --image ~/.config/sway/slate.jpg
