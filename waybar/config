@@ -90,7 +90,8 @@
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"]
+        "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+        "on-click-right": "iwgtk"
     },
     "custom/weather": {
         "exec": "$HOME/.config/waybar/weather.py",
