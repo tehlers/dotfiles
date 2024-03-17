@@ -2,6 +2,10 @@ set $mod Mod4
 
 input * xkb_layout "de"
 
+input type:touchpad {
+    natural_scroll enabled
+}
+
 font pango:FontAwesome 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
