@@ -86,4 +86,32 @@ require('lazy').setup({
             vim.fn["firenvim#install"](0)
         end
     },
+
+    -- LuaRocks package manager (needed by Neorg)
+    {
+        "vhyrro/luarocks.nvim",
+        priority = 1000, -- We'd like this plugin to load first out of the rest
+        config = true, -- This automatically runs `require("luarocks-nvim").setup()`
+    },
+
+    -- Neorg
+    {
+        "nvim-neorg/neorg",
+        dependencies = { "luarocks.nvim" },
+        lazy = false,
+        version = "*",
+        config = {
+            load = {
+                ["core.defaults"] = {},
+                ["core.concealer"] = {},
+                ["core.dirman"] = {
+                    config = {
+                        workspaces = {
+                            playground = "~/notes/playground",
+                        },
+                    },
+                },
+            },
+        },
+    },
 })

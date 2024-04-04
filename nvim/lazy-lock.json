@@ -11,6 +11,8 @@
   "lazy.nvim": { "branch": "main", "commit": "31ddbea7c10b6920c9077b66c97951ca8682d5c8" },
   "lualine-lsp-progress": { "branch": "master", "commit": "56842d097245a08d77912edf5f2a69ba29f275d7" },
   "lualine.nvim": { "branch": "master", "commit": "b5e8bb642138f787a2c1c5aedc2a78cb2cebbd67" },
+  "luarocks.nvim": { "branch": "main", "commit": "d73f4bbbeea9eeb9b66a0c6431db402654f43cb8" },
+  "neorg": { "branch": "main", "commit": "94829240cb692fe7f0562c92c488de57f7a28799" },
   "neotest": { "branch": "master", "commit": "e07fe8241112274aae9947b98d255763738a1d52" },
   "neotest-dart": { "branch": "main", "commit": "33b9335cd8c2be4dcf9dd8f196b24325e7c2e8e7" },
   "neotest-go": { "branch": "main", "commit": "6a2f996d89fe4631942e035b1c114544ee045043" },
