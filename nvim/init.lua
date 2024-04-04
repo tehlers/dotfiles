@@ -71,3 +71,5 @@ vim.api.nvim_set_keymap("t", "<C-v><Esc>", "<Esc>", { noremap = true })
 
 vim.api.nvim_create_autocmd({"BufEnter"}, {pattern = "github.com_*.txt", command = "set filetype=markdown"})
 vim.api.nvim_create_autocmd({"BufEnter"}, {pattern = "revolution.dev_*.txt", command = "set filetype=markdown"})
+
+vim.filetype.add( { filename = { [ 'Justfile' ] = 'just', }, } )
