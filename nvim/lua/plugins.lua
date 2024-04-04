@@ -1,64 +1,88 @@
-vim.cmd [[packadd packer.nvim]]
+require('lazy').setup({
+    -- Telescope
+    {
+        'nvim-telescope/telescope.nvim', tag = '0.1.6',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
 
-return require('packer').startup(function()
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    -- Treesitter
+    {
+        'nvim-treesitter/nvim-treesitter', 
+        build = ':TSUpdate',
+        config = function () 
+            local configs = require('nvim-treesitter.configs')
 
-  -- Telescope
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.4',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
+            configs.setup({
+                ensure_installed = { 'c', 'lua', 'rust', 'go', 'java', 'kotlin', 'dart', 'python' },
+                sync_install = false,
+                highlight = { 
+                    enable = true,
+                    additional_vim_regex_highlighting = false,
+                },
+                indent = { enable = true },  
+            })
+        end
+    },
 
-  -- Treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
+    -- lsp-config
+    'neovim/nvim-lspconfig',
 
-  -- lsp-config
-  use 'neovim/nvim-lspconfig'
+    
+    -- Theme Nightfox
+    'EdenEast/nightfox.nvim',
 
-  -- Theme Nightfox
-  use 'EdenEast/nightfox.nvim'
+    -- Lualine
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
 
-  -- Lualine
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+    -- lualine-lsp-progress
+    'arkav/lualine-lsp-progress',
 
-  -- lualine-lsp-progress
-  use 'arkav/lualine-lsp-progress'
+    -- nvim-cmp
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-nvim-lua',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+	    'hrsh7th/cmp-vsnip',
+            'hrsh7th/vim-vsnip',
+    	}
+    },
 
-  -- nvim-cmp
-  use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"}) -- Snippets plugin
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+    -- apply .editorconfig
+    'gpanders/editorconfig.nvim',
 
-  -- apply .editorconfig
-  use 'gpanders/editorconfig.nvim'
+    -- nvim-dap
+    'mfussenegger/nvim-dap',
 
-  -- nvim-dap
-  use 'mfussenegger/nvim-dap'
+    -- nvim-neotest
+    {
+        'nvim-neotest/neotest',
+        dependencies = {
+            'nvim-neotest/nvim-nio',
+            'nvim-lua/plenary.nvim',
+            'antoinemadec/FixCursorHold.nvim',
+            'nvim-treesitter/nvim-treesitter',
+            'nvim-neotest/neotest-go',
+	    'sidlatau/neotest-dart',
+            'rouge8/neotest-rust'
+        }
+    },
 
-  -- nvim-neotest
-  use {
-      'nvim-neotest/neotest',
-      requires = {
-          'nvim-lua/plenary.nvim',
-          'nvim-treesitter/nvim-treesitter',
-          'antoinemadec/FixCursorHold.nvim',
-          'sidlatau/neotest-dart',
-          'nvim-neotest/neotest-go',
-          'rouge8/neotest-rust'
-      }
-  }
+    -- firenvim
+    {
+        'glacambre/firenvim',
 
-  -- firenvim
-  use {
-    'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end 
-  }
-end)
+        -- Lazy load firenvim
+        -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+        lazy = not vim.g.started_by_firenvim,
+        build = function()
+            vim.fn["firenvim#install"](0)
+        end
+    },
+})
